@@ -35,7 +35,6 @@ install(EXPORT ${PROJECT_NAME}_TARGETS
     DESTINATION ${PROJECT_BINARY_DIR}
 )
 
-
 file(GLOB EXPORT_HEADER_LIST ${PROJECT_PUBLIC_INCLUDE_DIR}/*.hpp ${PROJECT_PUBLIC_INCLUDE_DIR}/*.h)
 install(FILES
     ${EXPORT_HEADER_LIST}
@@ -44,5 +43,7 @@ install(FILES
 
 add_executable(log_test log_test.cpp)
 target_link_libraries(log_test ${PROJECT_NAME})
+target_include_directories(log_test PRIVATE "include/")
 add_executable(timer_test timer_test.cpp)
 target_link_libraries(timer_test ${PROJECT_NAME})
+target_include_directories(timer_test PRIVATE "include/")
